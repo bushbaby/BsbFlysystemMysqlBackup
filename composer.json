@@ -18,7 +18,8 @@
     "zendframework/zend-stratigility": "^1.0"
   },
   "suggest": {
-    "bushbaby/doctrine-managerregistry-servicemanager": ""
+    "bushbaby/flysystem": "Zend Framework 2 module bridge for flysystem filesystem",
+    "bushbaby/doctrine-managerregistry-servicemanager": "An implementation of Doctrine's ManagerRegistry for the ZendFramework ServiceManager"
   },
   "require-dev": {
     "phpunit/phpunit": "^4.0",

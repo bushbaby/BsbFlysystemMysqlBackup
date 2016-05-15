@@ -2,6 +2,7 @@
 
 namespace BsbFlysystemMysqlBackup\Container;
 
+use BsbFlysystem\Service\FilesystemManager;
 use BsbFlysystemMysqlBackup\Option\MysqlDumperOptions;
 use BsbFlysystemMysqlBackup\Option\StorageOptions;
 use BsbFlysystemMysqlBackup\Service\MysqlBackupService;
@@ -29,7 +30,11 @@ class MysqlBackupServiceFactory
         $dumperOptions = $container->get(MysqlDumperOptions::class);
 
         /** @var Filesystem $filesystem */
-        $filesystem = $container->get($storageOptions->getFilesystem());
+        if ($container->has(FilesystemManager::class)) {
+            $filesystem = $container->get(FilesystemManager::class)->get($storageOptions->getFilesystem());
+        } else {
+            $filesystem = $container->get($storageOptions->getFilesystem());
+        }
 
         return new MysqlBackupService($dumper, $filesystem, $storageOptions, $dumperOptions);
     }
