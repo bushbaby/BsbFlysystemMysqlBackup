@@ -1,18 +1,15 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace BsbFlysystemMysqlBackup\Container;
 
-use Interop\Container\ContainerInterface;
 use BsbFlysystemMysqlBackup\Option\MysqlDumperOptions;
-use Zend\Stdlib\ArrayUtils;
+use Psr\Container\ContainerInterface;
 
 class MysqlDumperOptionsFactory
 {
-    /**
-     * @param ContainerInterface $container
-     * @return MysqlDumperOptions
-     */
-    public function __invoke(ContainerInterface $container)
+    public function __invoke(ContainerInterface $container): MysqlDumperOptions
     {
         $config  = $container->get('config');
         $options = [];

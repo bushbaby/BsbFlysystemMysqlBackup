@@ -1,37 +1,37 @@
 {
-  "name": "bushbaby/flysystem-mysql-backup",
-  "description": "Utility to dump a MySql Database to an 'Flysystem' filesystem",
-  "type": "library",
-  "homepage": "https://github.com/bushbaby/BsbFlysystemMysqlBackup",
-  "license": "MIT",
-  "authors": [
+  "name":         "bushbaby/flysystem-mysql-backup",
+  "description":  "Utility to dump a MySql Database to an 'Flysystem' filesystem",
+  "type":         "library",
+  "homepage":     "https://github.com/bushbaby/BsbFlysystemMysqlBackup",
+  "license":      "MIT",
+  "authors":      [
     {
-      "name": "Bas Kamer",
-      "email": "bas@bushbaby.nl"
+      "name":  "Bas Kamer",
+      "email": "baskamer@gmail.com"
     }
   ],
-  "require": {
-    "container-interop/container-interop": "^1.0",
-    "ifsnop/mysqldump-php": "^2.1",
-    "league/flysystem": "^1.0",
-    "zendframework/zend-stdlib": "^2.7",
+  "require":      {
+    "php":                             "^7.0",
+    "psr/container":                   "^1.0",
+    "ifsnop/mysqldump-php":            "^2.1",
+    "league/flysystem":                "^1.0",
+    "zendframework/zend-stdlib":       "^2.7 || ^3.0",
     "zendframework/zend-stratigility": "^1.0"
   },
-  "suggest": {
+  "suggest":      {
     "bushbaby/doctrine-managerregistry-servicemanager": ""
   },
-  "require-dev": {
-    "phpunit/phpunit": "^4.0",
-    "squizlabs/php_codesniffer": "^2.3"
+  "require-dev":  {
+    "plhw/hf-cs-fixer-config": "^1.0"
   },
-  "autoload": {
+  "autoload":     {
     "psr-4": {
       "BsbFlysystemMysqlBackup\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "BsbFlysystemMysqlBackupTest\\": "test/src/"
+      "BsbFlysystemMysqlBackupTest\\": "tesnt/src/"
     }
   }
 }

@@ -1,13 +1,13 @@
 <?php
 
+declare(strict_types = 1);
 namespace BsbFlysystemMysqlBackup\Container;
 
 use BsbFlysystemMysqlBackup\Option\MysqlDumperOptions;
 use BsbFlysystemMysqlBackup\Service\MysqlDumperService;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\DBAL\Connection;
-use Interop\Container\ContainerInterface;
-use Zend\Stdlib\ArrayUtils;
+use Psr\Container\ContainerInterface;
 
 class MysqlDumperServiceFactory
 {
@@ -15,7 +15,7 @@ class MysqlDumperServiceFactory
      * @param ContainerInterface $container
      * @return MysqlDumperService
      */
-    public function __invoke(ContainerInterface $container)
+    public function __invoke(ContainerInterface $container): MysqlDumperService
     {
         $config           = $container->get('config');
         $connectionParams = null;
@@ -75,7 +75,7 @@ class MysqlDumperServiceFactory
     private function constructPdoDsn(array $params)
     {
         $dsn = 'mysql:';
-        if (isset($params['host']) && $params['host'] != '') {
+        if (isset($params['host']) && $params['host'] !== '') {
             $dsn .= 'host=' . $params['host'] . ';';
         }
         if (isset($params['port'])) {

@@ -1,18 +1,15 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace BsbFlysystemMysqlBackup\Container;
 
 use BsbFlysystemMysqlBackup\Option\StorageOptions;
-use Interop\Container\ContainerInterface;
-use Zend\Stdlib\ArrayUtils;
+use Psr\Container\ContainerInterface;
 
 class StorageOptionsFactory
 {
-    /**
-     * @param ContainerInterface $container
-     * @return StorageOptions
-     */
-    public function __invoke(ContainerInterface $container)
+    public function __invoke(ContainerInterface $container): StorageOptions
     {
         $config  = $container->get('config');
         $options = [];

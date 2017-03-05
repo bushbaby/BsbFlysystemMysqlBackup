@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace BsbFlysystemMysqlBackup\Service;
 
 use BsbFlysystemMysqlBackup\Option\MysqlDumperOptions;
@@ -7,11 +9,9 @@ use BsbFlysystemMysqlBackup\Option\StorageOptions;
 use Ifsnop\Mysqldump\Mysqldump;
 use League\Flysystem\Filesystem;
 use League\Flysystem\Plugin\ListFiles;
-use Zend\Stdlib\ArrayUtils;
 
 class MysqlBackupService
 {
-
     /**
      * @var StorageOptions
      */
@@ -73,7 +73,7 @@ class MysqlBackupService
 
         try {
             if (false === $fileStream) {
-                throw new \RuntimeException("A temp file could not be created");
+                throw new \RuntimeException('A temp file could not be created');
             }
 
             // start dump and backup
@@ -111,7 +111,7 @@ class MysqlBackupService
      */
     public function pruneStorage()
     {
-        if (!$this->options->getPruneMaxCount() && !$this->options->getPruneMaxTtl()) {
+        if (! $this->options->getPruneMaxCount() && ! $this->options->getPruneMaxTtl()) {
             return 0;
         }
 
@@ -123,7 +123,7 @@ class MysqlBackupService
         // filter latest.txt
         if ($this->options->getWriteLatest()) {
             $filesInBackup = array_filter($filesInBackup, function ($item) {
-                return ($item['basename'] != $this->options->getWriteLatest());
+                return $item['basename'] !== $this->options->getWriteLatest();
             });
         }
 

@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace BsbFlysystemMysqlBackup\Option;
 
 use Zend\Stdlib\AbstractOptions;
-use Zend\Stdlib\ArrayUtils;
 
 class StorageOptions extends AbstractOptions
 {

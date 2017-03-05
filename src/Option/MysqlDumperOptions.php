@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace BsbFlysystemMysqlBackup\Option;
 
 use Ifsnop\Mysqldump\Mysqldump;
 use Zend\Stdlib\AbstractOptions;
-use Zend\Stdlib\ArrayUtils;
 
 class MysqlDumperOptions extends AbstractOptions
 {

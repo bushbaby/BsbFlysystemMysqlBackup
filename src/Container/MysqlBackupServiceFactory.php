@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace BsbFlysystemMysqlBackup\Container;
 
 use BsbFlysystemMysqlBackup\Option\MysqlDumperOptions;
@@ -7,17 +9,12 @@ use BsbFlysystemMysqlBackup\Option\StorageOptions;
 use BsbFlysystemMysqlBackup\Service\MysqlBackupService;
 use BsbFlysystemMysqlBackup\Service\MysqlDumperService;
 use Ifsnop\Mysqldump\Mysqldump as Dumper;
-use Interop\Container\ContainerInterface;
 use League\Flysystem\Filesystem;
-use Zend\Stdlib\ArrayUtils;
+use Psr\Container\ContainerInterface;
 
 class MysqlBackupServiceFactory
 {
-    /**
-     * @param ContainerInterface $container
-     * @return MysqlBackupService
-     */
-    public function __invoke(ContainerInterface $container)
+    public function __invoke(ContainerInterface $container): MysqlBackupService
     {
         /** @var Dumper $dumper */
         $dumper = $container->get(MysqlDumperService::class);
