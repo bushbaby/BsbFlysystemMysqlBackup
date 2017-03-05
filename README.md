@@ -94,6 +94,8 @@ return [
 
             /*
              * Container service name of the Flysystem filesystem used to persisted dumps
+             *
+             * @since 0.2.0 this may also be the name of a filesystem as it has been registered to the BsbFlysystem Manager
              */
             // 'filesystem'      => 'Container/Name/Of/FilesystemService',
 

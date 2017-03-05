@@ -57,7 +57,7 @@ class MysqlBackupService
     public function doBackup()
     {
         $date     = date('YmdHisO');
-        $dumpName = $this->options->getPath() . $date . '.sql';
+        $dumpName = trim($this->options->getPath() . $date . '.sql', '/');
 
         switch ($this->dumperOptions->getCompress()) {
             case Mysqldump::GZIP:
@@ -68,7 +68,7 @@ class MysqlBackupService
                 break;
         }
 
-        $tmpFile    = tempnam(sys_get_temp_dir(), 'bsb-offsite-mysql-backup-');
+        $tmpFile    = tempnam(sys_get_temp_dir(), 'bsb-flysystem-mysql-backup-');
         $fileStream = fopen($tmpFile, 'rb');
 
         try {
