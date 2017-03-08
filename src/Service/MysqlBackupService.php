@@ -129,7 +129,7 @@ class MysqlBackupService
 
         // sort on timestamp
         usort($filesInBackup, function ($item1, $item2) {
-            return strcmp($item1['timestamp'], $item2['timestamp']);
+            return strcmp((string) $item1['timestamp'], (string) $item2['timestamp']);
         });
 
         $pruneCount = 0;
