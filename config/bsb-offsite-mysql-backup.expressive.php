@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 use BsbDoctrineRegistry\Container\ManagerRegistryFactory;
 use BsbFlysystemMysqlBackup\Container\MysqlBackupServiceFactory;
 use BsbFlysystemMysqlBackup\Container\MysqlBackupServiceFactory;
