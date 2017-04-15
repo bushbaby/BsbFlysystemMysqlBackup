@@ -11,19 +11,20 @@
     }
   ],
   "require":      {
-    "php":                             "^7.0",
-    "psr/container":                   "^1.0",
-    "ifsnop/mysqldump-php":            "^2.1",
-    "league/flysystem":                "^1.0",
-    "zendframework/zend-stdlib":       "^2.7 || ^3.0",
-    "zendframework/zend-stratigility": "^1.0"
+    "php":                       "^7.1",
+    "psr/container":             "^1.0",
+    "ifsnop/mysqldump-php":      "^2.1",
+    "league/flysystem":          "^1.0",
+    "zendframework/zend-stdlib": "^2.7 || ^3.0",
+    "doctrine/dbal":             "^2.5"
   },
-  "suggest": {
-    "bushbaby/flysystem": "Zend Framework 2 module bridge for flysystem filesystem",
+  "suggest":      {
+    "bushbaby/flysystem":                               "Zend Framework 2 module bridge for flysystem filesystem",
     "bushbaby/doctrine-managerregistry-servicemanager": "An implementation of Doctrine's ManagerRegistry for the ZendFramework ServiceManager"
   },
   "require-dev":  {
-    "plhw/hf-cs-fixer-config": "^1.0"
+    "plhw/hf-cs-fixer-config": "^1.0",
+    "bushbaby/flysystem":        "^2.0"
   },
   "autoload":     {
     "psr-4": {

@@ -1,14 +1,16 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace BsbFlysystemMysqlBackup\Service;
 
 use BsbFlysystemMysqlBackup\Option\MysqlDumperOptions;
 use BsbFlysystemMysqlBackup\Option\StorageOptions;
+use Exception;
 use Ifsnop\Mysqldump\Mysqldump;
 use League\Flysystem\Filesystem;
 use League\Flysystem\Plugin\ListFiles;
+use RuntimeException;
 
 class MysqlBackupService
 {
@@ -32,13 +34,6 @@ class MysqlBackupService
      */
     private $filesystem;
 
-    /**
-     * MysqlBackupService constructor.
-     *
-     * @param Mysqldump  $dumper
-     * @param Filesystem $filesystem
-     * @param array      $options
-     */
     public function __construct(
         Mysqldump $dumper,
         Filesystem $filesystem,
@@ -51,10 +46,7 @@ class MysqlBackupService
         $this->dumperOptions = $dumperOptions;
     }
 
-    /**
-     * @return mixed
-     */
-    public function doBackup()
+    public function doBackup(): string
     {
         $date     = date('YmdHisO');
         $dumpName = trim($this->options->getPath() . $date . '.sql', '/');
@@ -73,7 +65,7 @@ class MysqlBackupService
 
         try {
             if (false === $fileStream) {
-                throw new \RuntimeException('A temp file could not be created');
+                throw new RuntimeException('A temp file could not be created');
             }
 
             // start dump and backup
@@ -91,8 +83,8 @@ class MysqlBackupService
             if ($this->options->getAutoPrune()) {
                 $this->pruneStorage();
             }
-        } catch (\Exception $e) {
-            throw new \RuntimeException($e->getMessage());
+        } catch (Exception $e) {
+            throw new RuntimeException($e->getMessage());
         } finally {
             if (is_resource($fileStream)) {
                 fclose($fileStream);
@@ -106,10 +98,7 @@ class MysqlBackupService
         return $dumpName;
     }
 
-    /**
-     * @return int
-     */
-    public function pruneStorage()
+    public function pruneStorage(): int
     {
         if (! $this->options->getPruneMaxCount() && ! $this->options->getPruneMaxTtl()) {
             return 0;
@@ -139,7 +128,7 @@ class MysqlBackupService
             if ($this->options->getPruneMaxCount()) {
                 if (count($filesInBackup) >= $this->options->getPruneMaxCount()) {
                     $this->filesystem->delete($last['path']);
-                    $pruneCount++;
+                    ++$pruneCount;
                     continue;
                 }
             }
@@ -147,7 +136,7 @@ class MysqlBackupService
             if ($this->options->getPruneMaxTtl()) {
                 if ($last['timestamp'] < (time() - $this->options->getPruneMaxTtl())) {
                     $this->filesystem->delete($last['path']);
-                    $pruneCount++;
+                    ++$pruneCount;
                     continue;
                 }
             }

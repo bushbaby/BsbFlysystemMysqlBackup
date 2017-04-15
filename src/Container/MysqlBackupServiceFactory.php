@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace BsbFlysystemMysqlBackup\Container;
 
@@ -26,7 +26,7 @@ class MysqlBackupServiceFactory
         /** @var MysqlDumperOptions $dumperOptions */
         $dumperOptions = $container->get(MysqlDumperOptions::class);
 
-        /** @var Filesystem $filesystem */
+        /* @var Filesystem $filesystem */
         if ($container->has(FilesystemManager::class)) {
             $filesystem = $container->get(FilesystemManager::class)->get($storageOptions->getFilesystem());
         } else {

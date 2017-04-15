@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace BsbFlysystemMysqlBackup\Option;
 
@@ -33,380 +33,237 @@ class MysqlDumperOptions extends AbstractOptions
     private $skipComments        = false;
     private $skipDumpDate        = false;
 
-    /**
-     * @return array
-     */
-    public function getIncludeTables()
+    public function getIncludeTables(): array
     {
         return $this->includeTables;
     }
 
-    /**
-     * @param array $includeTables
-     */
-    public function setIncludeTables($includeTables)
+    public function setIncludeTables(array $includeTables): void
     {
         $this->includeTables = $includeTables;
     }
 
-    /**
-     * @return array
-     */
-    public function getExcludeTables()
+    public function getExcludeTables(): array
     {
         return $this->excludeTables;
     }
 
-    /**
-     * @param array $excludeTables
-     */
-    public function setExcludeTables($excludeTables)
+    public function setExcludeTables(array $excludeTables): void
     {
         $this->excludeTables = $excludeTables;
     }
 
-    /**
-     * @return string
-     */
-    public function getCompress()
+    public function getCompress(): string
     {
         return $this->compress;
     }
 
-    /**
-     * @param string $compress
-     */
-    public function setCompress($compress)
+    public function setCompress(string $compress): void
     {
         $this->compress = $compress;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getNoData()
+    public function getNoData(): bool
     {
         return $this->noData;
     }
 
-    /**
-     * @param boolean $noData
-     */
-    public function setNoData($noData)
+    public function setNoData(bool $noData): void
     {
         $this->noData = $noData;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getAddDropTable()
+    public function getAddDropTable(): bool
     {
         return $this->addDropTable;
     }
 
-    /**
-     * @param boolean $addDropTable
-     */
-    public function setAddDropTable($addDropTable)
+    public function setAddDropTable(bool $addDropTable): void
     {
         $this->addDropTable = $addDropTable;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getSingleTransaction()
+    public function getSingleTransaction(): bool
     {
         return $this->singleTransaction;
     }
 
-    /**
-     * @param boolean $singleTransaction
-     */
-    public function setSingleTransaction($singleTransaction)
+    public function setSingleTransaction(bool $singleTransaction): void
     {
         $this->singleTransaction = $singleTransaction;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getLockTables()
+    public function getLockTables(): bool
     {
         return $this->lockTables;
     }
 
-    /**
-     * @param boolean $lockTables
-     */
-    public function setLockTables($lockTables)
+    public function setLockTables(bool $lockTables): void
     {
         $this->lockTables = $lockTables;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getAddLocks()
+    public function getAddLocks(): bool
     {
         return $this->addLocks;
     }
 
-    /**
-     * @param boolean $addLocks
-     */
-    public function setAddLocks($addLocks)
+    public function setAddLocks(bool $addLocks): void
     {
         $this->addLocks = $addLocks;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getExtendedInsert()
+    public function getExtendedInsert(): bool
     {
         return $this->extendedInsert;
     }
 
-    /**
-     * @param boolean $extendedInsert
-     */
-    public function setExtendedInsert($extendedInsert)
+    public function setExtendedInsert(bool $extendedInsert): void
     {
         $this->extendedInsert = $extendedInsert;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getDisableKeys()
+    public function getDisableKeys(): bool
     {
         return $this->disableKeys;
     }
 
-    /**
-     * @param boolean $disableKeys
-     */
-    public function setDisableKeys($disableKeys)
+    public function setDisableKeys(bool $disableKeys): void
     {
         $this->disableKeys = $disableKeys;
     }
 
-    /**
-     * @return string
-     */
-    public function getWhere()
+    public function getWhere(): string
     {
         return $this->where;
     }
 
-    /**
-     * @param string $where
-     */
-    public function setWhere($where)
+    public function setWhere(string $where): void
     {
         $this->where = $where;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getNoCreateInfo()
+    public function getNoCreateInfo(): bool
     {
         return $this->noCreateInfo;
     }
 
-    /**
-     * @param boolean $noCreateInfo
-     */
-    public function setNoCreateInfo($noCreateInfo)
+    public function setNoCreateInfo(bool $noCreateInfo): void
     {
         $this->noCreateInfo = $noCreateInfo;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getSkipTriggers()
+    public function getSkipTriggers(): bool
     {
         return $this->skipTriggers;
     }
 
-    /**
-     * @param boolean $skipTriggers
-     */
-    public function setSkipTriggers($skipTriggers)
+    public function setSkipTriggers(bool $skipTriggers): void
     {
         $this->skipTriggers = $skipTriggers;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getAddDropTrigger()
+    public function getAddDropTrigger(): bool
     {
         return $this->addDropTrigger;
     }
 
-    /**
-     * @param boolean $addDropTrigger
-     */
-    public function setAddDropTrigger($addDropTrigger)
+    public function setAddDropTrigger(bool $addDropTrigger): void
     {
         $this->addDropTrigger = $addDropTrigger;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getRoutines()
+    public function getRoutines(): bool
     {
         return $this->routines;
     }
 
-    /**
-     * @param boolean $routines
-     */
-    public function setRoutines($routines)
+    public function setRoutines(bool $routines): void
     {
         $this->routines = $routines;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getHexBlob()
+    public function getHexBlob(): bool
     {
         return $this->hexBlob;
     }
 
-    /**
-     * @param boolean $hexBlob
-     */
-    public function setHexBlob($hexBlob)
+    public function setHexBlob(bool $hexBlob): void
     {
         $this->hexBlob = $hexBlob;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getDatabases()
+    public function getDatabases(): bool
     {
         return $this->databases;
     }
 
-    /**
-     * @param boolean $databases
-     */
-    public function setDatabases($databases)
+    public function setDatabases(bool $databases): void
     {
         $this->databases = $databases;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getAddDropDatabase()
+    public function getAddDropDatabase(): bool
     {
         return $this->addDropDatabase;
     }
 
-    /**
-     * @param boolean $addDropDatabase
-     */
-    public function setAddDropDatabase($addDropDatabase)
+    public function setAddDropDatabase(bool $addDropDatabase): void
     {
         $this->addDropDatabase = $addDropDatabase;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getSkipTzUtc()
+    public function getSkipTzUtc(): bool
     {
         return $this->skipTzUtc;
     }
 
-    /**
-     * @param boolean $skipTzUtc
-     */
-    public function setSkipTzUtc($skipTzUtc)
+    public function setSkipTzUtc(bool $skipTzUtc): void
     {
         $this->skipTzUtc = $skipTzUtc;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getNoAutocommit()
+    public function getNoAutocommit(): bool
     {
         return $this->noAutocommit;
     }
 
-    /**
-     * @param boolean $noAutocommit
-     */
-    public function setNoAutocommit($noAutocommit)
+    public function setNoAutocommit(bool $noAutocommit): void
     {
         $this->noAutocommit = $noAutocommit;
     }
 
-    /**
-     * @return string
-     */
-    public function getDefaultCharacterSet()
+    public function getDefaultCharacterSet(): string
     {
         return $this->defaultCharacterSet;
     }
 
-    /**
-     * @param string $defaultCharacterSet
-     */
-    public function setDefaultCharacterSet($defaultCharacterSet)
+    public function setDefaultCharacterSet(string $defaultCharacterSet): void
     {
         $this->defaultCharacterSet = $defaultCharacterSet;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getSkipComments()
+    public function getSkipComments(): bool
     {
         return $this->skipComments;
     }
 
-    /**
-     * @param boolean $skipComments
-     */
-    public function setSkipComments($skipComments)
+    public function setSkipComments(bool $skipComments): void
     {
         $this->skipComments = $skipComments;
     }
 
-    /**
-     * @return boolean
-     */
-    public function getSkipDumpDate()
+    public function getSkipDumpDate(): bool
     {
         return $this->skipDumpDate;
     }
 
-    /**
-     * @param boolean $skipDumpDate
-     */
-    public function setSkipDumpDate($skipDumpDate)
+    public function setSkipDumpDate(bool $skipDumpDate): void
     {
         $this->skipDumpDate = $skipDumpDate;
     }
 
-    /**
-     * Cast to array
-     *
-     * @return array
-     */
-    public function toDumperArray()
+    public function toDumperArray(): array
     {
         $array     = [];
         $transform = function ($letters) {

@@ -1,6 +1,7 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
+
 namespace BsbFlysystemMysqlBackup\Container;
 
 use BsbFlysystemMysqlBackup\Option\MysqlDumperOptions;
@@ -11,10 +12,6 @@ use Psr\Container\ContainerInterface;
 
 class MysqlDumperServiceFactory
 {
-    /**
-     * @param ContainerInterface $container
-     * @return MysqlDumperService
-     */
     public function __invoke(ContainerInterface $container): MysqlDumperService
     {
         $config           = $container->get('config');
@@ -50,29 +47,18 @@ class MysqlDumperServiceFactory
         );
     }
 
-    /**
-     * @param array $params
-     * @return array
-     */
-    private function constructDumperConnection(array $params)
+    private function constructDumperConnection(array $params): array
     {
         $result                  = [];
         $result['dsn']           = $this->constructPdoDsn($params);
         $result['user']          = $params['user'];
         $result['password']      = $params['password'];
-        $result['driverOptions'] = isset($params['driverOptions']) ? $params['driverOptions'] : [];
+        $result['driverOptions'] = $params['driverOptions'] ?? [];
 
         return $result;
     }
 
-    /**
-     * Constructs the MySql PDO DSN.
-     *
-     * @param array $params
-     *
-     * @return string The DSN.
-     */
-    private function constructPdoDsn(array $params)
+    private function constructPdoDsn(array $params): string
     {
         $dsn = 'mysql:';
         if (isset($params['host']) && $params['host'] !== '') {
